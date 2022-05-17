@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			li {
+				list-style: none;
+			}
+		</style>
+		<script src="../lib/jquery.js"></script>
+	</head>
+	<body>
+		<textarea cols="30" id="dd" rows="10"></textarea>
+		<button>发布</button>
+		<ul>
+			<!-- <li></li> -->
+		</ul>
+	</body>
+	<script>
+		// //获取元素
+		// let text = document.querySelector('#dd');
+		// let but = document.querySelector('button');
+		// let ul = document.querySelector('ul');
+
+		// //按钮点击事件
+		// but.addEventListener('click', function () {
+		// 	//获取输入框内容
+		// 	let val = text.value;
+		// 	//创建一个li标签
+		// 	let li = document.createElement('li');
+		// 	//给li标签赋值
+		// 	li.innerHTML = val;
+		// 	//讲li添加到ul中
+		// 	ul.appendChild(li);
+		// 	//清空输入框
+		// 	text.value = '';
+		// });
+
+		$('button').on('click', function () {
+			//获取输入款内容
+			let text = $('#dd').val();
+			//创建一个li
+			let li = $(`<li>${text}</li>`);
+      
+      //在ul的末尾添加li
+			// $('ul').append(li);
+
+      //将li添加到ul中末尾
+			$(`<li>${text}</li>`).appendTo('ul');
+		});
+	</script>
+</html>

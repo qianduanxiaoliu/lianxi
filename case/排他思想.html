@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			ul {
+				display: flex;
+			}
+			li {
+				list-style: none;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 48px;
+				border: 1px solid #ccc;
+			}
+			.current {
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+	<script>
+		let lis = document.querySelectorAll('li');
+		lis.forEach(function (item) {
+			item.addEventListener('click', function () {
+				lis.forEach(function (item) {
+					item.className = '';
+				});
+				this.className = 'current';
+ 			});
+		});
+	</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			table {
+				width: 600px;
+				text-align: center;
+				border-collapse: collapse;
+				margin: 20px auto;
+			}
+			table thead tr {
+				height: 40px;
+				text-align: center;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+			}
+
+			table tbody tr {
+				height: 40px;
+				text-align: center;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				cursor: pointer;
+			}
+
+			.pink {
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<td>公司</td>
+					<td>价格</td>
+					<td>地点</td>
+					<td>体重</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+		let trs = document.querySelector('tbody').querySelectorAll('tr');
+		for (let i = 0; i < trs.length; i++) {
+			if (i % 2 == 0) {
+				// trs[i].className = 'pink';
+				trs[i].style.backgroundColor = 'pink';
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			table {
+				width: 600px;
+				text-align: center;
+				border-collapse: collapse;
+				margin: 20px auto;
+			}
+
+			thead tr,
+			td {
+				height: 40px;
+				text-align: center;
+				border: 1px solid #ccc;
+			}
+			tbody tr,
+			td {
+				height: 40px;
+				text-align: center;
+				border: 1px solid #ccc;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<td><input type="checkbox" id="all" /></td>
+					<td>公司</td>
+					<td>价格</td>
+					<td>地点</td>
+					<td>体重</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>北京科技有限公司</td>
+					<td>32.3</td>
+					<td>海淀区盈科大厦</td>
+					<td>43kg</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+    //获取元素
+		let all = document.querySelector('#all');
+		let inps = document.querySelector('tbody').querySelectorAll('input');
+    //给全选按钮添加点击事件
+		all.addEventListener('click', function () {
+			inps.forEach(function (item) {
+				item.checked = all.checked;
+			});
+		});
+
+    //给单选按钮添加点击事件
+		inps.forEach(function (item) {
+			item.addEventListener('click', function () {
+        //初始化选中
+				all.checked = true;
+				inps.forEach(function (item) {
+          //当有一个未选中时全选按钮为未选中
+					if (!item.checked) {
+						all.checked = this.checked;
+					}
+				});
+			});
+		});
+	</script>
+</html>
