@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var arr = [10, 50, 6, 55, 53];
+			function get(item) {
+				let sss = 2;
+				while (sss < item) {
+					if (item % sss == 0) {
+						return false;
+					}
+					sss++;
+				}
+				return item;
+			}
+
+			console.log(arr.find(get));
+		</script>
+	</body>
+</html>

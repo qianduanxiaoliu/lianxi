@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			class MyDate extends Date {
+				formatDate = () => {
+					let YY = this.getFullYear();
+					YY > 10 ? YY : '0' + YY;
+					let MM = this.getMonth() + 1;
+					MM > 10 ? MM : '0' + MM;
+					let DD = this.getDate();
+					DD > 10 ? DD : '0' + DD;
+					let HH = this.getHours();
+					HH > 10 ? HH : '0' + HH;
+					let mm = this.getMinutes();
+					mm > 10 ? mm : '0' + mm;
+					let ss = this.getSeconds();
+					ss > 10 ? ss : '0' + ss;
+					return `今天日期${YY}年${MM}月${DD}日${HH}时${mm}分${ss}秒`;
+				};
+			}
+			// console.log(MyDate.formatDate());
+			dd = new MyDate();
+			console.log(dd.formatDate());
+			console.log(dd.getFullYear());
+		</script>
+	</body>
+</html>

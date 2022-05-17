@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			ul {
+				display: flex;
+				justify-content: space-between;
+				width: 500px;
+				height: 50px;
+				background-color: pink;
+			}
+
+			li {
+				list-style: none;
+				width: 100px;
+				height: 50px;
+				background-color: green;
+			}
+
+			.box {
+				width: 600px;
+				height: 200px;
+				/* background-color: yellow; */
+			}
+			.box div {
+				width: 500px;
+				height: 200px;
+				display: none;
+			}
+
+			.current {
+				background-color: red;
+			}
+
+			.box .current1 {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<ul>
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+			<div class="current1">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+
+	<script>
+		class getTab {
+			constructor(id) {
+				this.main = document.querySelector(id);
+				this.lis = this.main.querySelectorAll('li');
+				this.divs = this.main.querySelectorAll('div');
+				this.init();
+			}
+			// 初始化函数
+			init() {
+				for (let i = 0; i < this.lis.length; i++) {
+					this.lis[i].index = i;
+					this.lis[i].onclick = this.getqie.bind(this, this.lis[i]);
+				}
+			}
+
+			// 点击切换
+			getqie(that) {
+				for (let i = 0; i < this.lis.length; i++) {
+					this.lis[i].className = '';
+					this.divs[i].className = '';
+				}
+				that.className = 'current';
+				this.divs[that.index].className = 'current1';
+			}
+		}
+
+		new getTab('#box');
+	</script>
+</html>

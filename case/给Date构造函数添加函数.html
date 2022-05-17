@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			const toMyString = () => {
+				let date = new Date();
+				let YY = date.getFullYear();
+				// YY > 10 ? YY : '0' + YY;
+				let MM = date.getMonth() + 1;
+				// MM > 10 ? MM : '0' + MM;
+				let DD = date.getDate();
+				// DD > 10 ? DD : '0' + DD;
+				let HH = date.getHours();
+				// HH > 10 ? HH : '0' + HH;
+				let mm = date.getMinutes();
+				// mm > 10 ? mm : '0' + mm;
+				let ss = date.getSeconds();
+				// ss > 10 ? ss : '0' + ss;
+				// return `今天日期${YY}年${MM}月${DD}日${HH}时${mm}分${ss}秒`;
+				let arr = [YY, MM, DD, HH, mm, ss].map(function (item) {
+					return item > 10 ? item : '0' + item;
+				});
+				return arr.slice(0, 3).join('/') + ' ' + arr.slice(3).join(':');
+			};
+
+			Date.__proto__.toMyString = toMyString;
+			console.log(Date.toMyString());
+			console.log(toMyString());
+		</script>
+	</body>
+</html>

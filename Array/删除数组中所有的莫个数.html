@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let arr = [5, 8, 9, 6, 2, 5, 5, 3, 2, 4, 6, 3, 2, 5, 3, 5, 4, 7, 5, 6, 5, 5];
+			console.log(arr.length);
+			let num = 0;
+			arr.forEach((item) => {
+				if (item == 5) {
+					num++;
+				}
+			});
+			console.log(num);
+			arr.forEach((item, index) => {
+				if (arr.indexOf(5) !== -1) {
+					arr.splice(arr.indexOf(5), 1);
+				}
+				console.log(index);
+			});
+			console.log(arr);
+		</script>
+	</body>
+</html>

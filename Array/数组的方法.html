@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 增加元素
+			// push 将元素添加到数组尾部  会改变原数组   返回数组长度
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.push(2);
+			console.log(arr); //[2, 5, 9, 3, 7, 2]
+			console.log(arr1); //6
+
+			//unshift  将元素添加到数组的头部  会改变原数组   返回数组的长度
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.unshift(3);
+			console.log(arr); //[3, 2, 5, 9, 3, 7]
+			console.log(arr1); //6
+
+			// splice    会改变原数组  返回删除的数据或是替换下来的数据
+			// 第一个值起始位置  第二个值删除个数,不写则删除后面的全部  后面的值再删除位置添加的元素
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.splice(0, 2);
+			console.log(arr1); // [ 2,5]
+			console.log(arr); //[9,3,7]
+
+			// concat  拼接数组 不会改变原数组   返回拼接后的数组
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = [2, 2];
+			var arr2 = arr.concat(arr1);
+			console.log(arr); //[2, 5, 9, 3, 7]
+			console.log(arr2); //[2, 5, 9, 3, 7,2,2]
+
+			//删除元素
+			//pop  删除数组末尾的元素  会改变原数组  返回删除的元素
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.pop();
+			console.log(arr); //[2, 5, 9, 3]
+			console.log(arr1); //7
+
+			//shift 删除头部元素  会改变原数组  返回删除的元素
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.shift();
+			console.log(arr); //[5,9,3,7]
+			console.log(arr1); //2
+
+			//slice  截取元素 不改变原数组 返回截取的内容
+			// 第一个值是起始位置   第二个值是截取末尾位置 包括起始不包括末尾
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.slice(0, 3);
+			console.log(arr); //[2, 5, 9, 3, 7]
+			console.log(arr1); //[2, 5, 9]
+
+			//修改数组
+			// splice    会改变原数组  返回删除的数据或是替换下来的数据
+			// 第一个值起始位置  第二个值删除个数,不写则删除后面的全部  后面的值再删除位置添加的元素
+			//第一个值填需要修改的元素的索引值  第二个填需要修改的个数  第三个修改后的元素
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.splice(0, 2);
+			console.log(arr1); // [ 2,5]
+			console.log(arr); //[9,3,7]
+
+			//查找元素
+			//indexOf  输入需要查找的元素返回第一个找到的索引号  没找到返回-1
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.indexOf(5);
+			var arr2 = arr.indexOf(6);
+			console.log(arr1); //1
+			console.log(arr2); //-1
+
+			//includes 返回是否查到元素 true/false
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.includes(2);
+			var arr2 = arr.includes(6);
+			console.log(arr1); //true
+			console.log(arr2); //false
+
+			//find  传入一个函数返回第一个匹配元素
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.find((item) => {
+				return item > 5;
+			});
+			console.log(arr1); //9
+
+			// findIndex 传入一个函数返回第一个匹配元素的索引号
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.findIndex((item) => {
+				return item > 5;
+			});
+			console.log(arr1); //2
+
+			//排序的方法
+			//sort  将原数组排序  会改变原数组  返回排序后的数组
+			var arr = [2, 5, 9, 3, 7];
+			arr.sort();
+			console.log(arr); //[2, 3, 5, 7, 9]
+
+			// sort 中可以传入一个函数自定义升序降序
+			//a-b升序  b-a降序
+			var arr = [2, 5, 9, 3, 7];
+			arr.sort((a, b) => {
+				return a - b;
+			});
+
+			//reverse  翻转数组  会改变原数组  返回翻转后的数组
+			var arr = [2, 5, 9, 3, 7];
+			arr.reverse();
+			console.log(arr); //[7, 3, 9, 5, 2]
+
+			// 转换方法
+			// join  将数组转换成字符串  不会改变原数组  返回转换后的字符串
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.join(',');
+			console.log(arr); //[2, 5, 9, 3, 7]
+			console.log(arr1); //2,5,9,3,7
+
+			// Aray.from()  将类数组（伪数组）转换为数组
+			var arrayLike = {
+				0: 'a',
+				1: 'b',
+				2: 'c',
+				length: 3
+			};
+			var arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+
+			// 迭代（循环）方法
+			// some 传入一个函数 数组中有一个满足则返回true 不会改变原数组
+			//判断数组中是否有满足项
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.some((item) => {
+				return item > 6;
+			});
+			console.log(arr1); //true
+
+			//every 传入一个函数 判断数组内的所有元素是否都满足条件  不会改变原数组
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.every((item) => {
+				return item > 6;
+			});
+			console.log(arr1); //false
+
+			// filter  不会改变原数组 返回一个新的数组
+			//寻找数组中所有的满足项  筛选
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.filter((item) => {
+				return item > 5;
+			});
+			console.log(arr1); //[7,9]
+
+			// forEach  第一个参数是函数  第二个参数是this指向
+			//函数内第一个值是数组元素 第二个值是索引号  第三个是数组本身
+			var arr = [2, 5, 9, 3, 7];
+			arr.forEach((item, index) => {
+				console.log(item, index);
+			});
+
+			//map  不会改变原数组  返回改变后的新数组 映射 
+			var arr = [2, 5, 9, 3, 7];
+			var arr1 = arr.map((item) => {
+				return item * 2;
+			});
+			console.log(arr1); //[4, 10, 18, 6, 14]
+
+			
+		</script>
+	</body>
+</html>

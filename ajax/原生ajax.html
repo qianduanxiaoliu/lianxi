@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="but1">发起Git请求</button>
+		<button id="but2">发起POST请求</button>
+	</body>
+	<script>
+		let but1 = document.querySelector('#but1');
+		but1.addEventListener('click', () => {
+			//创建xhr对象
+			let xhr = new XMLHttpRequest();
+			// 调用open函数   (？id=2&bookname=红楼梦) 查询字符串
+			xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks?id=2&bookname=红楼梦');
+			// 调用send函数
+			xhr.send();
+			// 监听 onreadystatechange 事件
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// JSON.parse() 把jsonp格式转换成对象格式
+					console.log(JSON.parse(xhr.responseText));
+				}
+			};
+		});
+
+		but2.addEventListener('click', () => {
+			// 1. 创建 xhr 对象
+			var xhr = new XMLHttpRequest();
+			// 2. 调用 open 函数
+			xhr.open('POST', 'http://www.liulongbin.top:3006/api/addbook');
+			// 3. 设置 Content-Type 属性
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			// 4. 调用 send 函数
+			xhr.send('bookname=三体aaa&author=刘慈欣&publisher=黑马出版社');
+			// 5. 监听事件
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					console.log(xhr.responseText);
+				}
+			};
+		});
+	</script>
+</html>

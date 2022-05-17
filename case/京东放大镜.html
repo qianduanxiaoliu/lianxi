@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .pic {
+            float: left;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px #ccc solid;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, .5);
+        }
+
+        .big {
+            position: relative;
+            display: none;
+            overflow: hidden;
+            position: absolute;
+            left: 320px;
+            top: 0;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .big .bigimg {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <div class="w">
+        <div class="pic">
+            <img src="img/b3.png" width="300" height="300" alt="">
+            <div class="mask"></div>
+            <div class="big"><img src="img/big.jpg" alt="" class="bigimg"></div>
+        </div>
+    </div>
+    <script>
+
+        var pic = document.querySelector('.pic')
+        var mask = document.querySelector('.mask')
+        var big = document.querySelector('.big')
+
+        //鼠标经过显示大图这遮盖层
+        pic.addEventListener('mouseover', function (e) {
+            mask.style.display = 'block'
+            big.style.display = 'block'
+        })
+
+        //鼠标离开影藏大图和遮盖层
+        pic.addEventListener('mouseout', function (e) {
+            mask.style.display = 'none'
+            big.style.display = 'none'
+        })
+
+        //鼠标移动
+        pic.addEventListener('mousemove', function (e) {
+            //鼠标在盒子中的位置
+            var x = e.pageX - this.offsetLeft
+            var y = e.pageY - this.offsetTop
+            //鼠标移动的距离
+            var moveX = e.pageX - x
+            var moveY = e.pageY - y
+            //遮盖层移动
+            if (x < mask.offsetWidth / 2) {
+                mask.style.left = 0
+            } else if (x > pic.offsetWidth - mask.offsetWidth / 2) {
+                var maskX = pic.offsetWidth - mask.offsetWidth
+                mask.style.left = maskX + 'px'
+            } else {
+                maskX = x - mask.offsetWidth / 2
+                mask.style.left = maskX + 'px'
+            }
+
+            if (y < mask.offsetHeight / 2) {
+                mask.style.top = 0
+            } else if (y > pic.offsetHeight - mask.offsetHeight / 2) {
+                maskY = pic.offsetHeight - mask.offsetHeight
+                mask.style.top = maskY + 'px'
+            } else {
+                maskY = y - mask.offsetHeight / 2
+                mask.style.top = maskY + 'px'
+            }
+
+            //大图的移动
+            var bigimg = document.querySelector('.bigimg')
+            console.log(bigimg.offsetWidth);
+            console.log(big.offsetWidth);
+            var maskMax = pic.offsetWidth - mask.offsetWidth
+            var bigMax = bigimg.offsetWidth - big.offsetWidth
+            bigimg.style.left = - maskX * bigMax / maskMax + 'px'
+            bigimg.style.top = - maskX * bigMax / maskMax + 'px'
+        })
+
+
+    </script>
+</body>
+
+</html>

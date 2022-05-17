@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//创建一个set
+			//set是一种数据类型   里面不能有重复的数值
+			var s = new Set([2, 5, 5, 3, 6, 6]);
+			console.log(s); //[2,5,3,6]
+
+			//数组去重
+			// 方法一
+			/* var arr = [5, 5, 3, 3, 6, 6];
+			var set = new Set(arr);
+			var arr1 = [...set];
+			console.log(arr1); //[5,3,6] */
+			// 方法二
+			var arr = [5, 5, 3, 3, 6, 6];
+			var arr1 = Array.from(new Set(arr));
+			console.log(arr1); //[5,3,6]
+
+			//add 添加元素 支持连写
+			var s = new Set();
+			s.add(1).add(2);
+			console.log(s); //[1,2]
+
+			//delete 删除元素
+			var s = new Set([1, 2, 3, 4, 5]);
+			s.delete(1);
+			console.log(s); //[2,3,4,5]
+
+			//has 判断是否含有某个元素
+			var s = new Set([1, 2, 3, 4, 5]);
+			console.log(s.has(5)); //true
+
+			//clear 清空set
+			var s = new Set([1, 2, 3, 4, 5]);
+			s.clear();
+			console.log(s); //[]  空的
+		</script>
+	</body>
+</html>

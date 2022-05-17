@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function getMax(arr) {
+				for (let i = 0; i < arr.length - 1; i++) {
+					for (let j = 0; j < arr.length - 1 - i; j++) {
+						if (arr[j] > arr[j + 1]) {
+							let max = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = max;
+						}
+					}
+				}
+				return arr;
+			}
+			console.dir(Array);
+			Array.__proto__.getMax = getMax;
+			// console.log(Array.getMax([5, 9, 7, 6, 3, 1, 8, 5, 5]));
+			var arr = [5, 5, 3, 0, 8, 6, 77, 6, 7, 8];
+
+			console.log(Array.getMax(arr));
+			// arr.map(function (val) {
+			// 	val = val + 1;
+			// });
+			// console.log(arr);
+			console.dir(Array);
+			let nn = new Array();
+            // console.log(nn.getMax());
+            console.dir(arr)
+		</script>
+	</body>
+</html>
