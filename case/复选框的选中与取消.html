@@ -38,6 +38,7 @@
 					<td>价格</td>
 					<td>地点</td>
 					<td>体重</td>
+					<!-- <a href="jaxascript:;">删除</a> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -73,27 +74,53 @@
 		</table>
 	</body>
 	<script>
-    //获取元素
+		//获取元素
 		let all = document.querySelector('#all');
 		let inps = document.querySelector('tbody').querySelectorAll('input');
-    //给全选按钮添加点击事件
+		//给全选按钮添加点击事件
 		all.addEventListener('click', function () {
 			inps.forEach(function (item) {
 				item.checked = all.checked;
 			});
 		});
 
-    //给单选按钮添加点击事件
+		//给单选按钮添加点击事件
 		inps.forEach(function (item) {
 			item.addEventListener('click', function () {
-        //初始化选中
+				//初始化选中
 				all.checked = true;
 				inps.forEach(function (item) {
-          //当有一个未选中时全选按钮为未选中
+					//当有一个未选中时全选按钮为未选中
 					if (!item.checked) {
 						all.checked = this.checked;
 					}
 				});
+			});
+		});
+
+		//添加删除按钮
+		let oper = document.querySelector('thead').querySelector('tr');
+		console.log(oper);
+		let newtd = document.createElement('td');
+		newtd.innerHTML = '操作';
+		oper.appendChild(newtd);
+
+		var opers = document.querySelector('tbody').querySelectorAll('tr');
+		console.log(opers);
+
+		// console.log(del);
+		opers.forEach(function (item) {
+			var del = document.createElement('td');
+			del.innerHTML = `<a href="javascript:;" class='del'>删除</a>`;
+			item.appendChild(del);
+		});
+
+		// 给删除按钮添加点击事件
+		let tbody = document.querySelector('tbody');
+		let del = document.querySelectorAll('.del');
+		del.forEach(function (item) {
+			item.addEventListener('click', function () {
+				tbody.removeChild(this.parentNode.parentNode);
 			});
 		});
 	</script>
