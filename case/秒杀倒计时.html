@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.box {
+				width: 200px;
+				height: 400px;
+				background-color: pink;
+				margin: 50px auto;
+				padding: 175px 0 0;
+			}
+			.min {
+				display: flex;
+				width: 200px;
+				height: 50px;
+				/* background-color: red; */
+				justify-content: space-evenly;
+			}
+			span {
+				width: 50px;
+				height: 100%;
+				background-color: #fff;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="min">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+	<script>
+		let spans = document.querySelectorAll('span');
+		let onedate = +new Date('2022-5-20');
+		const settime = () => {
+			let nowdate = +new Date();
+			let timer = parseInt((onedate - nowdate) / 1000);
+			let hh = parseInt((timer / 60 / 60) % 24);
+			let mm = parseInt((timer / 60) % 60);
+			let ss = parseInt(timer % 60);
+			spans[0].innerHTML = hh;
+			spans[1].innerHTML = mm;
+			spans[2].innerHTML = ss;
+		};
+		settime();
+		setInterval(settime, 1000);
+	</script>
+</html>
