@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//查询字符串
+			//string.charAt(index)  传入需要查找的索引值，返回对应的字符
+			var str = 'askhdsafjas';
+			var str1 = str.charAt(5); // s
+			console.log(str1);
+
+			//string.indexOf() 传入字符串，返回对应的索引值，未找到返回-1
+			var str = 'askhdsafjas';
+			var str1 = str.indexOf('kh'); // 2
+			console.log(str1);
+
+			//截取字符串的方法
+			//string.slice(start,end)  传入两个值 start:索引开始位置（包含）  end：索引结束位置（不包含）
+			//返回一个新的字符串
+			var str = 'askhdsafjas';
+			var str1 = str.slice(0, 2); //as
+			console.log(str1);
+
+			//string.substr(start, length) 传入两个值 start：索引开始的位置  length：截取的长度,不写则截取后面全部
+			//返回一个新字符串
+			var str = 'askhdsafjas';
+			var str1 = str.substr(1, 5); //skhds
+			console.log(str1);
+
+			//string.substring(from, to) 传入两个值  form：索引开始的位置（包含）  to：索引结束的位置（不包含）
+			var str = 'askhdsafjas';
+			var str1 = str.substring(2, 5); //khd
+			console.log(str1);
+
+			//string.replace()
+			//第一个参数可以为字符串也可以为一个正则对象
+			//第二个参数可以为字符串也可以为一个函数，函数有三个形参，第一个是正则匹配的对象，第二个为匹配位置的索引值，第三个是被匹配的对象
+			var str = 'askhdsafjas';
+			var str1 = str.replace('sa', function (...tres) {
+				console.log(tres); //['sa', 5, 'askhdsafjas']
+				return 'bb';
+			});
+			console.log(str1); //askhdbbfjas
+
+			//字符串转化为数组
+			//string.split()  传入两个参数，第一个为字符串或者正则，表述从该参数的指定位置分割字符串
+			//第二个参数 如果设置了则表示 子串不会大于这个数字
+			//这个方法和数组的Array.join()刚好相反
+			var str = 'askhdsafjas';
+			var str1 = str.split('');
+			console.log(str1); // ['a', 's', 'k', 'h', 'd', 's', 'a', 'f', 'j', 'a', 's']
+
+			//拼接字符串
+			//conCat()
+			var str1 = 'aaa';
+			var str2 = 'bbb';
+			var str3 = str1.concat(str2);
+			console.log(str3); //aaabbb
+
+			//去除两边的空格
+			// string.trim() 不传参数 只能去除两边的空格不能去除中间的空格
+			var str = '   aaa  bbb   ';
+			var str1 = str.trim();
+			console.log(str1); //aaa  bbb
+		</script>
+	</body>
+</html>
